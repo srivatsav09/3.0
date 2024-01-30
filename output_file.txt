@@ -1,187 +1,413 @@
-Deploy a Flask App | Render Docs
-Product
-Features
-Autoscaling
-Private Networking
-Managed PostgreSQL
-Managed Redis®
-Persistent Disks
-Infrastructure as Code
-Preview Environments
-Zero Downtime Deploys
-Render API
-Services
-Static Sites
-Web Services
-Private Services
-Background Workers
-Cron Jobs
-PostgreSQL
-Redis®
-Compare to Heroku
-Runtimes
-Node
-Docker
-Static Sites
-Python
-Ruby
-Elixir
-Go
-Rust
-PHP
-Pricing
-Blog
-Docs
-Careers
-About
-Sign In
-Get Started
-Documentation
-Search docs
-Start
-Quickstarts
-Free instances
-Team features
-Migrate from Heroku
-Service types
-Which to use?
-Static sites
-Web services
-Private services
-Background workers
-Cron jobs
-One-off jobs
-Deploying
-How deploys work
-Build pipeline
-Service previews
-Deploy hooks
-Troubleshooting deploys
-Git commits
-Deploy a commit
-GitHub
-GitLab
-Monorepo support
-Docker images
-Docker on Render
-Deploy from a registry
-Using secrets
-Runtime
-Supported languages
-Native runtimes
-Environment variables & secrets
-Default environment variables
-Storage
-Persistent disks
-Redis
-PostgreSQL Databases
-Creating & connecting
-Backups & recovery
-Read replicas
-High availability
-Upgrading your version
-Connection pooling
-Extensions
-Networking
-Regions
-Private network
-Outbound IPs
-TLS certificates
-Custom domains
-Overview
-Cloudflare
-Namecheap
-Other DNS providers
-Workflows
-Projects
-Infrastructure as code (Blueprints)
-Overview
-Preview environments
-Blueprint specification
-Monitoring
-Scaling
-Rollbacks
-Notifications
-DDoS protection
-Uptime best practices
-Logging
-In-dashboard logs
-Stream to your provider
-SSH
-Overview
-Generate a key
-Add a key
-Troubleshooting SSH
-Integrations
-Render API
-Overview
-API reference
-CLI
-Third-party tools
-Datadog
-Scout APM
-Stripe
-QuotaGuard Static IP
-Formspree
-Quickstarts
-Flask
-Deploy a Flask App
-You can deploy a
-Flask
-application on Render in just a few clicks.
-A sample app for this quick start is deployed at
-https://flask.onrender.com
-. The code uses
-Gunicorn
-to serve your app in a production setting.
-Fork
-render-examples/flask-hello-world
-on GitHub.
-This is the content of the app we’re deploying, from
-a minimal Flask application
-in the official docs:
-from
-flask
-import
-Flask
-app
-=
-Flask
-(
-__name__
-)
-@app
+Anastasia Beverly Hills Cosmetics & Beauty | Official Website
+Skip to content
+Enable Accessibility
+Shop Our Latest Drops!
+Free Shipping on Orders Over $35
+Add $10 Brush to Your Order
+Arrow - Left
+Arrow - Right
+Menu
+Search
+SHOP
+Shop All
+New Arrivals
+Winter Essentials
+Best Sellers
+Sales & Offers
+Kits & Sets
+NORVINA® Collection
+Body Makeup
+Accessories
+Build a Palette
+Exclusives
+Minis
+Vegan
+Valentine's Day Essentials
+BROWS
+Fill
+Detail
+Highlight
+Finish
+Tools
+Brow Kits
+Brushes
+EYES
+Eyeshadow & Primer
+Eyeliner
+Mascara
+False Lashes
+Brushes
+FACE
+Palettes
+Foundation & Concealer
+Contour
+Highlight & Glow
+Blush & Bronzer
+Setting Spray
+Brushes
+LIPS
+Lipstick
+Lip Gloss
+Lip Liner
+Lip Sets
+Brushes
+MAKEUP BRUSHES
+Eyebrows
+Eyes
+Face
+Lips
+DROPPING SOON
+GLOW SEEKER PEARL
+PRE-ORDER
+NEW
+LIP VELVET
+SHOP
+INTRODUCING
+BROW FREEZE
+®
+GEL
+SHOP
+LEARN
+Learn By Category
+Brows
+Palettes
+Lips
+Face
+Mascara
+Lash Genius®
+Video Library
+All Videos
+Helpful Resources
+About Us
+Our Brand Story
+National Brow Day
+The Golden Ratio
+Brow Quiz
+Subscriptions
+Search
+Close
+Search
+Close
+Anastasia Beverly Hills
+Loyalty
+Account
+Anastasia Beverly Hills
+Arrow - Left
+Close
+Arrow - Left
+Search
+Close
+Search
+SHOP
+Arrow - Right
+LEARN
+Arrow - Right
+Account
+Login | Sign up
+Loyalty
+Contact Us
+800.310.3773
+BROWS
+Arrow - Right
+EYES
+Arrow - Right
+FACE
+Arrow - Right
+LIPS
+Arrow - Right
+MAKEUP BRUSHES
+Arrow - Right
+Shop All Products
+Shop All
+New Arrivals
+Winter Essentials
+Best Sellers
+Sales & Offers
+Kits & Sets
+NORVINA® Collection
+Body Makeup
+Accessories
+Build a Palette
+Exclusives
+Minis
+Vegan
+Valentine's Day Essentials
+DROPPING SOON
+GLOW SEEKER PEARL
+PRE-ORDER
+NEW
+LIP VELVET
+SHOP
+INTRODUCING
+BROW FREEZE
+®
+GEL
+SHOP
+Learn By Category
+Brows
+Palettes
+Lips
+Face
+Mascara
+Lash Genius®
+Video Library
+All Videos
+Helpful Resources
+About Us
+Our Brand Story
+National Brow Day
+The Golden Ratio
+Brow Quiz
+Subscriptions
+Fill
+Detail
+Highlight
+Finish
+Tools
+Brow Kits
+Brushes
+Shop All BROWS
+Eyeshadow & Primer
+Eyeliner
+Mascara
+False Lashes
+Brushes
+Shop All EYES
+Palettes
+Foundation & Concealer
+Contour
+Highlight & Glow
+Blush & Bronzer
+Setting Spray
+Brushes
+Shop All FACE
+Lipstick
+Lip Gloss
+Lip Liner
+Lip Sets
+Brushes
+Shop All LIPS
+Eyebrows
+Eyes
+Face
+Lips
+Shop All MAKEUP BRUSHES
+Close
+YOUR BAG
+(0)
+Your cart is empty,
+continue shopping
 .
-route
-(
-'/'
+Close
+FILTER
+Close
+SORT BY
+Arrow - Down
+VIEW RESULTS (
 )
-def
-hello_world
-(
-)
-:
-return
-'Hello, World!'
-Create a new
-Web Service
-on Render, and give Render permission to access your new repo.
-Use the following values during creation:
-Runtime
-Python
-Build Command
-pip install -r requirements.txt
-Start Command
-gunicorn app:app
-That’s it! Your web service will be live on your Render URL as soon as the build finishes.
-Going forward, every push to your repo will automatically build your app and deploy it in production. If the build fails, Render will automatically stop the deploy process and the existing version of your app will keep running until the next successful deploy.
-See
-Specifying a Python Version
-if you need to customize the version of Python used for your app.
-Twitter
-LinkedIn
-GitHub
-Terms
-Privacy
-Security and Trust
-© Render 2023
+CLEAR FILTERS
+LOG IN
+Close
+Email Address
+Password
+Forgot Password?
+Don't have an account yet?
+Create Account
+NEW/
+VALENTINE'S DAY SHOP
+Shop heart-melting picks, from best-selling brows to luxe lipsticks that are perfect for whatever your Feb 14th has in store…
+LEARN MORE
+SHOP
+VALENTINE FAVES
+SHOP ALL
+Arrow - Left
+Arrow - Right
+Brow Wiz®
+12 Shades
+$25
+AWARD WINNER
+Quickshop
+Arrow - Left
+Arrow - Right
+Lip Liner
+22 Shades
+$18
+Quickshop
+Arrow - Left
+Arrow - Right
+Brow Freeze® Gel
+$26
+NEW
+Quickshop
+Arrow - Left
+Arrow - Right
+Matte & Satin Lipstick
+24 Shades
+$23
+Quickshop
+NEW/
+LASH GENIUS
+®
+LASH CONDITIONING SERUM
+An innovative conditioning lash serum designed to create fuller and longer-looking lashes that feel smoother, softer and tamer—the lashes you’ve always wanted.
+LEARN MORE
+ADD TO BAG
+LIP VELVET
+A velvet-smooth lip mousse in a weightless, true-matte color and cushion-comfortable formula for all-day wear.
+LEARN MORE
+BROW FREEZE
+®
+GEL
+Our innovative wax-gel hybrid that lifts, shapes, sculps and sets your brows with extreme hold and precision on-the-go.
+LEARN MORE
+NEW SHADE/
+PEARL
+GLOW SEEKER HIGHLIGHTER
+Love our illuminating Glow Seeker Highlighter? Meet our brand-new, exclusive shade Pearl – an iridescent white pearl with a pink shift. This universal shade delivers buildable intensity, amplifying skin and taking you from subtle luminosity to a strobing effect.
+LEARN MORE
+PRE-ORDER
+DISCOVER MORE
+GLOW SEEKER
+Ultra-beam effects. Weightless feel. Your perfect glow. Our most luxe highlighter is here for statement days and every day.
+SHOP
+BROW & LASH STYLING KIT
+An essential trio for brows + lashes.
+SHOP
+MINI MODERN RENAISSANCE
+Featuring 9 full-pigment shades ranging from neutral to berry tones in matte and metallic finishes.
+SHOP
+MINI SULTRY
+Featuring 9 full-pigment shades—including neutral, cool-toned mattes and metallics
+SHOP
+KITS & SETS
+Featuring full-size, full pigment limited edition value sets.
+SHOP
+BEST IN BROW
+SHOP ALL
+Arrow - Left
+Arrow - Right
+Brow Wiz®
+12 Shades
+$25
+AWARD WINNER
+Quickshop
+Arrow - Left
+Arrow - Right
+Brow Definer
+12 Shades
+$26
+SELLING FAST
+Quickshop
+Arrow - Left
+Arrow - Right
+Brow Freeze®
+$23
+Quickshop
+Arrow - Left
+Arrow - Right
+DIPBROW® Pomade
+11 Shades
+$21
+SELLING FAST
+Quickshop
+Arrow - Left
+Arrow - Right
+Clear Brow Gel
+$22
+Quickshop
+APOTHECARY SERIES:
+ANASTASIA SOARE
+Our Founding
+Eyebrow Shaping
+Product Development
+Balance & Proportions
+Everyday Essentials
+Labor of Love
+Arrow - Left
+Arrow - Right
+EXCLUSIVE
+TOOLS & OFFERS
+ADD A BRUSH FOR $10
+With your purchase of another product
+BUILD A PALETTE
+Buy 4 Eyeshadow Singles for $32, 6 for $48, or 8 for $64
+BROW QUIZ
+Take the Quiz
+Shop All
+New Arrivals
+Winter Essentials
+Best Sellers
+Sales & Offers
+Kits & Sets
+NORVINA® Collection
+Body Makeup
+Accessories
+Build a Palette
+Exclusives
+Minis
+Vegan
+Valentine's Day Essentials
+GET SOCIAL
+WITH #ABH
+Anastasia Beverly Hills
+Enable Accessibility
+PINTEREST
+Arrow pointing to the top right
+INSTAGRAM
+Arrow pointing to the top right
+X
+Arrow pointing to the top right
+FACEBOOK
+Arrow pointing to the top right
+YOUTUBE
+Arrow pointing to the top right
+(RESPONSES IN 48-72 HOURS)
+800.310.3773
+M-F 9am - 6pm CST
+SIGN UP FOR NEWS
+Receive updates on new arrivals, special offers and other discounts.
+Email Address
+SIGN UP
+Phone Number
+SIGN UP
+By signing up via text, you agree to receive recurring automated promotional and personalized marketing text messages (e.g. cart reminders) from Anastasia Beverly Hills at the cell number used when signing up. Consent is not a condition of any purchase. Reply HELP for help and STOP to cancel. Msg frequency varies. Msg & data rates may apply. View Terms & Privacy.
+PINTEREST
+Arrow pointing to the top right
+INSTAGRAM
+Arrow pointing to the top right
+X
+Arrow pointing to the top right
+FACEBOOK
+Arrow pointing to the top right
+YOUTUBE
+Arrow pointing to the top right
+About us
+ABH Inner Circle
+Find a Store
+Salon
+Gift Cards
+Check Your Balance
+Subscriptions
+Careers
+Customer Service
+Shipping and Returns
+Track Your Order
+Make a Return
+Terms and Conditions
+Loyalty Terms & Conditions
+Privacy Policy
+California Notice of Collection
+Your Privacy Choices
+Manage Cookie Preferences
+Accessibility Statement
+Counterfeit Education
+Supply Chain Act
+Promotional Disclaimers
+Giveaway Terms & Conditions
+(RESPONSES IN 48-72 HOURS)
+800.310.3773
+M-F 9am - 6pm CST
+COPYRIGHT © 2024 ANASTASIA BEVERLY HILLS. ALL RIGHTS RESERVED.
+DO NOT SELL MY PERSONAL INFORMATION
+Close
+Choosing a selection results in a full page refresh.

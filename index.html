@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Privacy Policy Summarizer</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #005cbf;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        form {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #005cbf;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background-color: #005cbf;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #004080;
+        }
+
+        h2 {
+            margin-top: 20px;
+            font-size: 1.8em;
+            color: #005cbf;
+        }
+
+        p {
+            line-height: 1.5;
+            color: #555;
+        }
+    </style>
+
+    <script>
+        function openNewWindow() {
+            window.open('/summarize', '_blank');
+        }
+    </script>
+</head>
+<body>
+    <h1>E-Commerce Privacy Policy Summarizer</h1>
+    <form action="/summarize" method="post">
+        <label for="article">Enter the privacy policy text:</label><br>
+        <textarea id="article" name="article" rows="10" cols="50" required></textarea><br>
+        <input type="submit" value="Generate Summary">
+    </form>
+
+    {% if summary %}
+        <h2>Summary:</h2>
+        <p>{{ summary }}</p>
+    {% endif %}
+
+    {% if article %}
+        <h2>Original Privacy Policy Text:</h2>
+        <p>{{ article }}</p>
+    {% endif %}
+</body>
+</html>

@@ -1,11 +1,10 @@
 # server.py
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,render_template
 from scraper import scrape_website
 from model_loader import load_and_predict_model  # Import the model loader function
 
 app = Flask(__name__)
-
 
 
 @app.route('/scrape', methods=['POST'])
@@ -31,6 +30,10 @@ def scrape_data():
     except Exception as e:
         error_message = f'Error during scraping and prediction: {str(e)}'
         return jsonify({'error': error_message})
+@app.route('/summarizer')
+def summarizer():
+    # Redirect to the summarizer HTML page
+    return render_template('summarizer.html')
 
 if __name__ == '__main__':
     app.run(port=5000)

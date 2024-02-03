@@ -37,3 +37,7 @@ document.getElementById("summarizeButton").addEventListener("click", function ()
     // Redirect to the summarizing HTML site
     chrome.runtime.sendMessage({ action: "summarize" });
 });
+document.getElementById("policyCheckerButton").addEventListener("click", function () {
+    // Inform the background script to open a new tab for the policy checker
+    chrome.runtime.sendMessage({ action: "policyChecker" });
+});

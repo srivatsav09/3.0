@@ -22,11 +22,11 @@
 
         {% if result %}
             <!-- Inside the <div class="result"> -->
-        <div class="result">
-            <p>Compatibility Score: {{ result.score }}</p>
-            <div class="compatibility-meter" style="width: {{ result.score * 100 }}%; background-color: {{ result.color }};"></div>
+            <div class="result">
+                <p>Compatibility Score: {{ result.score }}</p>
+                <div class="compatibility-meter" style="width: {{ result.score * 100 }}%; background-color: {{ result.color }};"></div>
             </div>
-            {% endif %}
-        </div>  
+        {% endif %}
+    </div>
 </body>
 </html>

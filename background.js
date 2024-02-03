@@ -25,6 +25,10 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         // Open a new tab only when summarization is requested
         chrome.tabs.create({ url: 'http://localhost:5000' });
     }
+    else if (request.action === "policyChecker") {
+      // Open a new tab for the policy checker
+      chrome.tabs.create({ url: 'http://localhost:5000/compare' });
+  }
     // Add other actions as needed
 }); 
   

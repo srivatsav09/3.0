@@ -20,4 +20,11 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     }
     // Add other actions as needed
   });
+  chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    if (request.action === "summarize") {
+        // Open a new tab only when summarization is requested
+        chrome.tabs.create({ url: 'http://localhost:5000' });
+    }
+    // Add other actions as needed
+}); 
   

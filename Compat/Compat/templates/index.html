@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Policy Compatibility Checker</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Policy Compatibility Checker</h1>
+        <form action="/compare" method="post">
+            <label for="government_policy">Government Policy:</label>
+            <textarea id="government_policy" name="government_policy" required></textarea>
+
+            <label for="company_policy">Company Policy:</label>
+            <textarea id="company_policy" name="company_policy" required></textarea>
+
+            <button type="submit">Compare Policies</button>
+        </form>
+
+        {% if result %}
+            <!-- Inside the <div class="result"> -->
+        <div class="result">
+            <p>Compatibility Score: {{ result.score }}</p>
+            <div class="compatibility-meter" style="width: {{ result.score * 100 }}%; background-color: {{ result.color }};"></div>
+            </div>
+            {% endif %}
+        </div>  
+</body>
+</html>

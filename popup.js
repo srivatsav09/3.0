@@ -33,7 +33,7 @@ document.getElementById("scrapeDataButton").addEventListener("click", function (
     });
 });
 
-document.getElementById("summarizeTextButton").addEventListener("click", function () {
+document.getElementById("summarizeButton").addEventListener("click", function () {
     // Redirect to the summarizing HTML site
-    chrome.tabs.create({ url: 'index.html' });
+    chrome.runtime.sendMessage({ action: "summarize" });
 });

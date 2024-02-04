@@ -49,8 +49,8 @@ def scrape_and_predict():
         url = data.get('url')
         if not url:
             return jsonify({'error': 'Missing URL in the request'})
-
-        scraped_data_file = scrape_website(url)
+        print(url)
+        scraped_data_file = scrape_website(url,'output_file.txt')
 
         if scraped_data_file:
             predictions = load_and_predict_model(scraped_data_file)
@@ -100,6 +100,70 @@ def compare():
     # Handle GET requests or invalid POST requests
     return render_template('index1.html')
 
+
+def check_texts_in_scraped_data(scraped_file_path, texts_to_check_file_path, output_file_path='final_charge.txt'):
+    try:
+        # Read the scraped data
+        with open(scraped_file_path, 'r', encoding='utf-8') as scraped_file:
+            scraped_data = scraped_file.read()
+
+        # Read the texts to check
+        with open(texts_to_check_file_path, 'r', encoding='utf-8') as texts_file:
+            texts_to_check = texts_file.readlines()
+        print("Texts to check:", texts_to_check)
+
+        # Initialize a list to store found texts
+        found_texts = []
+
+        # Check each text from the second file
+        for text in texts_to_check:
+            text = text.strip()  # Remove leading/trailing whitespace
+            if text in scraped_data:
+                found_texts.append(text)
+        print("Found texts:", found_texts)
+
+        # Write found texts to the output file
+        with open(output_file_path, 'w', encoding='utf-8') as output_file:
+            for found_text in found_texts:
+                output_file.write(found_text + '\n')
+
+        print("Found texts written to", output_file_path)
+        return found_texts
+
+    except Exception as e:
+        print("An error occurred:", str(e))
+        return False
+
+
+
+
+@app.route('/extra_charge',methods=['POST'])
+def extra_charge():
+    try:
+        data = request.json
+        url = data.get('url')
+        print(url)
+        if not url:
+            return jsonify({'error': 'Missing URL in the request'})
+        scraped_data_file = scrape_website(url,output_file_path='charge_scraper.txt')
+        if scraped_data_file:
+            text = check_texts_in_scraped_data('charge_scraper.txt','extra_charge.txt')
+            return jsonify({'status': 'Data scraped and predicted successfully','found_texts':text})
+        else:
+            return jsonify({'error': 'Error during data scraping'})
+    except Exception as e:
+        error_message = f'Error during scraping: {str(e)}'
+        return jsonify({'error': error_message})
+
+# @app.route('/search',methods=['POST'])
+# def search():
+#     try:
+#         data = request.json
+#         url = data.get('url')
+
+#     except Exception as e:
+#         error_message = f'Error during scraping: {str(e)}'
+#         return jsonify({'error': error_message})
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)

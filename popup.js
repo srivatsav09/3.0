@@ -41,3 +41,57 @@ document.getElementById("policyCheckerButton").addEventListener("click", functio
     // Inform the background script to open a new tab for the policy checker
     chrome.runtime.sendMessage({ action: "policyChecker" });
 });
+
+document.getElementById('extraChargeChecker').addEventListener('click',function(){
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        const url = tabs[0].url;
+        fetch('http://localhost:5000/extra_charge', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ url: url }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.error('Error:', data.error);
+                alert('Error: ' + data.error); // Display the error in an alert
+            } else {
+                //console.log("Scraping status:", data.status);
+                alert('Scraping status: ' + data.status);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error during js: ' + error.message); // Display the error in an alert
+        });
+    });
+})
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('searchButton').addEventListener('click', function () {
+        // Get the URL of the current tab
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            var currentTab = tabs[0];
+            var currentUrl = currentTab.url;
+
+            // Make an AJAX request to the server
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://localhost:5000/search?url=' + encodeURIComponent(currentUrl), true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // Handle successful response
+                        console.log(xhr.responseText);
+                        // Process the response, maybe update UI accordingly
+                    } else {
+                        // Handle error response
+                        console.error('Request failed:', xhr.status);
+                    }
+                }
+            };
+            xhr.send();
+        });
+    });
+});

@@ -1,35 +1,21 @@
-from flask import Flask, request, jsonify
-from scraper import scrape_website
-from model_loader import load_and_predict_model  # Import the model loader function
+from fuzzywuzzy import process
 
-app = Flask(__name__)
+# Sample text
+text = "sales"
 
-@app.route('/summarize', methods=['POST'])
-def summarize():
-    data = request.json
-    # Implement your text summarization logic here
-    summarized_text = "This is a sample summary."
-    return jsonify({'summary': summarized_text})
+# List of keywords related to shipping or charges
+keywords = ["shipping", "charges", "fee", "cost", "price","tax"]
 
-@app.route('/scrape', methods=['POST'])
-def scrape_data():
-    try:
-        data = request.json
-        url = data.get('url')  # Assuming the URL is sent in the 'url' field of the JSON request
-        if not url:
-            return jsonify({'error': 'Missing URL in the request'})
+# Function to check if a word matches any of the keywords
+def match_keyword(word):
+    highest_match = process.extractOne(word, keywords)
+    if highest_match[1] >= 70:  # Adjust the threshold as needed
+        return True
+    return False
 
-        scraped_data_file = scrape_website(url)
-        
-        if scraped_data_file:
-            # Call the model loading and prediction function
-            predictions = load_and_predict_model(scraped_data_file)
-            return jsonify({'status': 'Data scraped and predicted successfully', 'predictions': predictions})
-        else:
-            return jsonify({'error': 'Error during data scraping'})
-    except Exception as e:
-        error_message = f'Error during scraping and prediction: {str(e)}'
-        return jsonify({'error': error_message})
+# Tokenize the text and check for matches
+words = text.split()
+matched_words = [word for word in words if match_keyword(word.lower())]
 
-if __name__ == '__main__':
-    app.run(port=5000)
+# Print the matched words
+print("Matched words:", matched_words)
